@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ReportPortal.Log4nNet</id>
+    <version>$version$</version>
+    <title>ReportPortal Log4Net</title>
+    <authors>Nikolay Borisenko</authors>
+    <owners>Nikolay Borisenko</owners>
+    <licenseUrl>https://raw.githubusercontent.com/reportportal/logger-net-log4net/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/reportportal/logger-net-log4net</projectUrl>
+    <iconUrl>https://reportportal.github.io/img/rp_logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Report Portal Log4Net integration point</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>reportportal testing</tags>
+
+    <dependencies>
+      <group>
+        <dependency id="ReportPortal.Shared" version="[1.1.1,)" />
+        <dependency id="log4net" version="[2.0.5,)" />
+      </group>
+    </dependencies>
+
+  </metadata>
+  <files>
+     <file src="ReportPortal.Log4Net.dll" target="lib" />
+
+  </files>
+
+</package>
