@@ -15,7 +15,7 @@ Add custom appender into log4net configuration file.
 ```xml
 <log4net>
   ...
-  <appender name="RP" type="ReportPortal.ReportPortalAppender, ReportPortal.Log4Net">
+  <appender name="RP" type="ReportPortal.Log4Net.ReportPortalAppender, ReportPortal.Log4Net">
     <layout type="log4net.Layout.SimpleLayout" />
     <layout type="log4net.Layout.PatternLayout">
       <conversionpattern value="%message%newline" />
