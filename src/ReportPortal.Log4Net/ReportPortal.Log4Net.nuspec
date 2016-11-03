@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>ReportPortal.Log4nNet</id>
+    <id>ReportPortal.Log4Net</id>
     <version>$version$</version>
     <title>ReportPortal Log4Net</title>
     <authors>Nikolay Borisenko</authors>
