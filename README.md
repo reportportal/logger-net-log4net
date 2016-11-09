@@ -6,8 +6,9 @@ Install **ReportPortal.Log4Net** NuGet package.
 
 [![NuGet version](https://badge.fury.io/nu/reportportal.log4net.svg)](https://badge.fury.io/nu/reportportal.log4net)
 
-
-> PS> Install-Package ReportPortal.Log4Net
+```powershell
+PS> Install-Package ReportPortal.Log4Net
+```
 
 # Configuration
 
