@@ -42,16 +42,7 @@ namespace ReportPortal.Log4Net
                     message += Environment.NewLine + loggingEvent.GetExceptionString();
                 }
 
-                var request = new AddLogItemRequest
-                {
-                    TestItemId = Bridge.Context.TestId,
-                    Level = level,
-                    Time = DateTime.UtcNow,
-                    Text = message
-                };
-                
-
-                Bridge.Service.AddLogItem(request);
+                Bridge.LogMessage(level, message);
             }
         }
     }
