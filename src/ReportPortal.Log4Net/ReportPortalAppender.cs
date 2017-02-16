@@ -35,14 +35,7 @@ namespace ReportPortal.Log4Net
                     level = LevelMap[loggingEvent.Level];
                 }
 
-                var message = loggingEvent.RenderedMessage;
-
-                if (loggingEvent.ExceptionObject != null)
-                {
-                    message += Environment.NewLine + loggingEvent.GetExceptionString();
-                }
-
-                Bridge.LogMessage(level, message);
+                Bridge.LogMessage(level, this.RenderLoggingEvent(loggingEvent));
             }
         }
     }
