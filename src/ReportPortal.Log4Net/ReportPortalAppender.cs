@@ -27,7 +27,7 @@ namespace ReportPortal.Log4Net
 
         protected override void Append(LoggingEvent loggingEvent)
         {
-            if (Bridge.Context.TestId != null)
+            if (Bridge.Context.LaunchReporter != null && Bridge.Context.LaunchReporter.LastTestNode != null)
             {
                 var level = LogLevel.Info;
                 if (LevelMap.ContainsKey(loggingEvent.Level))
@@ -35,7 +35,12 @@ namespace ReportPortal.Log4Net
                     level = LevelMap[loggingEvent.Level];
                 }
 
-                Bridge.LogMessage(level, this.RenderLoggingEvent(loggingEvent));
+                Bridge.Context.LaunchReporter.LastTestNode.Log(new AddLogItemRequest
+                {
+                    Level = level,
+                    Text = RenderLoggingEvent(loggingEvent),
+                    Time = DateTime.UtcNow
+                });
             }
         }
     }
