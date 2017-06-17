@@ -35,12 +35,7 @@ namespace ReportPortal.Log4Net
                     level = LevelMap[loggingEvent.Level];
                 }
 
-                Bridge.Context.LaunchReporter.LastTestNode.Log(new AddLogItemRequest
-                {
-                    Level = level,
-                    Text = RenderLoggingEvent(loggingEvent),
-                    Time = DateTime.UtcNow
-                });
+                Bridge.LogMessage(level, RenderLoggingEvent(loggingEvent));
             }
         }
     }
