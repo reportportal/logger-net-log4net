@@ -11,13 +11,13 @@
     <RepositoryUrl>https://github.com/reportportal/logger-net-log4net</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>reportportal testing log4net</PackageTags>
-    <Version>1.1.5-beta1</Version>
+    <Version>1.1.5-beta2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="ReportPortal.Shared" Version="2.0.0-beta2" />
+    <PackageReference Include="ReportPortal.Shared" Version="2.0.0-beta4" />
   </ItemGroup>
 
 </Project>

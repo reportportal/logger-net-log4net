@@ -12,7 +12,7 @@ namespace ReportPortal.Log4Net
     /// Log4Net custom adapter for reporting logs directly to Report Portal.
     /// Logs will be viewable under current test item from shared context.
     /// </summary>
-    public class ReportPortalAppender: AppenderSkeleton
+    public class ReportPortalAppender : AppenderSkeleton
     {
         protected Dictionary<Level, LogLevel> LevelMap = new Dictionary<Level, LogLevel>();
         public ReportPortalAppender()
@@ -27,16 +27,13 @@ namespace ReportPortal.Log4Net
 
         protected override void Append(LoggingEvent loggingEvent)
         {
-            if (Bridge.Context.LaunchReporter != null && Bridge.Context.LaunchReporter.LastTestNode != null)
+            var level = LogLevel.Info;
+            if (LevelMap.ContainsKey(loggingEvent.Level))
             {
-                var level = LogLevel.Info;
-                if (LevelMap.ContainsKey(loggingEvent.Level))
-                {
-                    level = LevelMap[loggingEvent.Level];
-                }
-
-                Bridge.LogMessage(level, RenderLoggingEvent(loggingEvent));
+                level = LevelMap[loggingEvent.Level];
             }
+
+            Bridge.LogMessage(level, RenderLoggingEvent(loggingEvent));
         }
     }
 }
