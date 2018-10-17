@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ReportPortal.Client.Models;
-using ReportPortal.Client.Requests;
 using ReportPortal.Shared;
 using log4net.Appender;
 using log4net.Core;
@@ -17,7 +15,7 @@ namespace ReportPortal.Log4Net
         protected Dictionary<Level, LogLevel> LevelMap = new Dictionary<Level, LogLevel>();
         public ReportPortalAppender()
         {
-            LevelMap[Level.Fatal] = LogLevel.Error;
+            LevelMap[Level.Fatal] = LogLevel.Fatal;
             LevelMap[Level.Error] = LogLevel.Error;
             LevelMap[Level.Warn] = LogLevel.Warning;
             LevelMap[Level.Info] = LogLevel.Info;
