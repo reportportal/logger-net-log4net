@@ -31,7 +31,12 @@ namespace ReportPortal.Log4Net
                 level = LevelMap[loggingEvent.Level];
             }
 
-            Bridge.LogMessage(level, RenderLoggingEvent(loggingEvent));
+            Log.Message(new Client.Requests.AddLogItemRequest
+            {
+                Level = level,
+                Time = loggingEvent.TimeStampUtc,
+                Text = RenderLoggingEvent(loggingEvent)
+            });
         }
     }
 }
