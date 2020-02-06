@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using ReportPortal.Client.Models;
 using ReportPortal.Shared;
 using log4net.Appender;
 using log4net.Core;
+using ReportPortal.Client.Abstractions.Responses;
+using ReportPortal.Client.Abstractions.Requests;
 
 namespace ReportPortal.Log4Net
 {
@@ -31,7 +32,7 @@ namespace ReportPortal.Log4Net
                 level = LevelMap[loggingEvent.Level];
             }
 
-            Log.Message(new Client.Requests.AddLogItemRequest
+            Log.Message(new CreateLogItemRequest
             {
                 Level = level,
                 Time = loggingEvent.TimeStampUtc,
