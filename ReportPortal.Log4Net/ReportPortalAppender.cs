@@ -2,8 +2,8 @@
 using ReportPortal.Shared;
 using log4net.Appender;
 using log4net.Core;
-using ReportPortal.Client.Abstractions.Responses;
 using ReportPortal.Client.Abstractions.Requests;
+using ReportPortal.Client.Abstractions.Models;
 
 namespace ReportPortal.Log4Net
 {
