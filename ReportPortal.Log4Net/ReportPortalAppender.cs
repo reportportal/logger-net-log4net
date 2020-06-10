@@ -32,7 +32,7 @@ namespace ReportPortal.Log4Net
                 level = LevelMap[loggingEvent.Level];
             }
 
-            Log.Message(new CreateLogItemRequest
+            Log.ActiveScope.Message(new CreateLogItemRequest
             {
                 Level = level,
                 Time = loggingEvent.TimeStampUtc,
