@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="ReportPortal.Shared" Version="3.0.0-commands.1" />
+    <PackageReference Include="ReportPortal.Shared" Version="3.0.0-beta.4" />
   </ItemGroup>
 
 </Project>
