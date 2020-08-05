@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using ReportPortal.Client.Models;
 using ReportPortal.Shared;
 using log4net.Appender;
 using log4net.Core;
+using ReportPortal.Shared.Execution.Logging;
 
 namespace ReportPortal.Log4Net
 {
@@ -12,31 +12,30 @@ namespace ReportPortal.Log4Net
     /// </summary>
     public class ReportPortalAppender : AppenderSkeleton
     {
-        protected Dictionary<Level, LogLevel> LevelMap = new Dictionary<Level, LogLevel>();
+        protected Dictionary<Level, LogMessageLevel> LevelMap = new Dictionary<Level, LogMessageLevel>();
         public ReportPortalAppender()
         {
-            LevelMap[Level.Fatal] = LogLevel.Fatal;
-            LevelMap[Level.Error] = LogLevel.Error;
-            LevelMap[Level.Warn] = LogLevel.Warning;
-            LevelMap[Level.Info] = LogLevel.Info;
-            LevelMap[Level.Debug] = LogLevel.Debug;
-            LevelMap[Level.Trace] = LogLevel.Trace;
+            LevelMap[Level.Fatal] = LogMessageLevel.Fatal;
+            LevelMap[Level.Error] = LogMessageLevel.Error;
+            LevelMap[Level.Warn] = LogMessageLevel.Warning;
+            LevelMap[Level.Info] = LogMessageLevel.Info;
+            LevelMap[Level.Debug] = LogMessageLevel.Debug;
+            LevelMap[Level.Trace] = LogMessageLevel.Trace;
         }
 
         protected override void Append(LoggingEvent loggingEvent)
         {
-            var level = LogLevel.Info;
+            var level = LogMessageLevel.Info;
             if (LevelMap.ContainsKey(loggingEvent.Level))
             {
                 level = LevelMap[loggingEvent.Level];
             }
 
-            Log.Message(new Client.Requests.AddLogItemRequest
-            {
-                Level = level,
-                Time = loggingEvent.TimeStampUtc,
-                Text = RenderLoggingEvent(loggingEvent)
-            });
+            var logMessage = new LogMessage(RenderLoggingEvent(loggingEvent));
+            logMessage.Time = loggingEvent.TimeStampUtc;
+            logMessage.Level = level;
+
+            Context.Current.Log.Message(logMessage);
         }
     }
 }
