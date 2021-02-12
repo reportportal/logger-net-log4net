@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using ReportPortal.Shared;
 using log4net.Appender;
 using log4net.Core;
@@ -31,7 +32,7 @@ namespace ReportPortal.Log4Net
                 level = LevelMap[loggingEvent.Level];
             }
 
-            var logMessage = new LogMessage(RenderLoggingEvent(loggingEvent));
+            var logMessage = new LogMessage(WebUtility.HtmlEncode(RenderLoggingEvent(loggingEvent)));
             logMessage.Time = loggingEvent.TimeStampUtc;
             logMessage.Level = level;
 
